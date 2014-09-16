@@ -1,6 +1,10 @@
+Inspiration:
+
 > A beautiful poem should re-write itself one-half word at a time, in pre-determined intervals.
 >
 > [Seven Controlled Vocabluaries](http://www.amazon.com/Seven-Controlled-Vocabularies-Obituary-Cooking/dp/0819569291) by [Tan Lin](https://twitter.com/chalkknit)
+
+and 
 
 > So if algorithms like autocomplete can defame people or businesses, our next logical question might be to ask how to hold those algorithms accountable for their actions. 
 >
