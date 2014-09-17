@@ -7,17 +7,25 @@
   <body>
     <a class="hide-for-small-only" href="http://github.com/edsu/vogon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a> 
     <div class="row">
-      <div class="large-offset-3 large-6 small-offset-1 small-10">
+      <div id="credit" class="hide-for-small-only large-3 columns">
+          A beautiful poem should re-write itself one-half word at a time, in
+          pre-determined intervals.<br>
+          <br>
+          <a href="http://www.upne.com/0819569288.html">Seven Controlled Vocabluaries</a>
+          by <a href="https://twitter.com/chalkknit">Tan Lin</a>.
+      </div>
+      <div id="poem" class="large-8 small-offset-1 small-10 columns">
         <br>
         <input id="title" value="Vogon">
         <br>
         <br>
-        <article id="poem">
+        <article id="verses">
         </article>
       </div>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/verbs.js"></script>
     <script src="js/vogon.js"></script>
     <script>
       $(function() {

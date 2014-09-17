@@ -4,10 +4,13 @@
  */
 
 var phrasesSeen = [];
+var verbProbability = 0.6;
+var maxLines = 16;
+var writingDelay = 1500;
 
 function writePoem(seed) {
   phrasesSeen = [];
-  $("#poem").empty();
+  $("#verses").empty();
   getLine(seed);
 }
 
@@ -31,28 +34,35 @@ function writeLine(data) {
   var phrase = phrases.pop();
   phrase = phrase.replace(RegExp(data[0] + ' '), '');
 
+  // sometimes add a verb
+  if (Math.random() > verbProbability) {
+    phrase = verb() + " " + phrase;
+  }
+
   var words = phrase.split(' ');
   remove(words, 'lyrics'); 
   remove(words, 'mp3'); 
   phrase = words.join(' ');
 
-  if (phrasesSeen.indexOf(phrase) > -1) {
+  //if (phrasesSeen.indexOf(phrase) > -1 || phrasesSeen.length >= maxLines) {
+  if (phrasesSeen.length >= maxLines) {
     return;
   }
   phrasesSeen.push(phrase);
 
   var line = $('<div class="line">' + phrase + "</div>").hide();
-  $("#poem").append(line);
+  $("#verses").append(line);
   line.fadeIn();
   if (phrasesSeen.length % 4 === 0) {
-    $("#poem").append("<br>"); 
+    $("#verses").append("<br>"); 
   }
 
   if (words.length > 1) {
     i = Math.floor(Math.random() * words.length);
     j = Math.floor(Math.random() * (words.length - i)) + 1;
     var q = words.slice(i, i + j).join(' ');
-    setTimeout('getLine("' + q + '")', 100);
+    var wait = Math.floor(Math.random() * writingDelay);
+    setTimeout('getLine("' + q + '")', wait);
   }
 }
 

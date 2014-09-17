@@ -3,3 +3,13 @@
   font-weight: bold;
   padding: 5px;
 }
+
+#poem {
+  font-size: 18pt;
+}
+
+#credit {
+  font-size: 14pt;
+  font-style: italic;
+  margin-top: 100px;
+}
