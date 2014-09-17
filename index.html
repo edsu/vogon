@@ -27,14 +27,18 @@
   
         <div id="tips" class="row">
           <p>
-          A few tips:
+          Some tips:
           </p>
           <ol>
-            <li>Reload this page and see the poem change</li>
-            <li>Change the poems title by clicking on it.</li>
+            <li>Reload this page and see the poem change.</li>
+            <li>See the poem change by clicking on the title and giving it a 
+            new one.</li>
             <li>Share a stanza you like on Twitter.</li>
             <li>Log out of Google and try it again.</li>
-            <li>Open your JavaScript console to get some insight into what's going on.</li>
+            <li>Open your JavaScript console to see log messages about what's 
+            going on.</li>
+            <li>Yes, it's using Google's autocomplete to generate a poem using
+            the title as a seed.</li>
           </ol>
         </div>
 
@@ -67,7 +71,7 @@
       $(function() {
         var title = window.location.hash || "Vogon";
         title = title.replace("#", "");
-        $("#title").text(title);
+        $("#title").val(title);
         writePoem(title);
         $("#title").change(function() {
           writePoem($(this).val());
