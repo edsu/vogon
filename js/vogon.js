@@ -13,6 +13,7 @@ function writePoem(seed) {
   linesSeen = [];
   $("#stanzas").empty();
   getLine(seed);
+  window.location.hash = seed;
 }
 
 function writeLine(data) {
@@ -104,8 +105,8 @@ function displayShare() {
     lines.push($(o).text());
   });
   var text = lines.join(" / ") + " #vogonpoetry";
-
-  $(this).append('<a class="twitter-share-button" data-count="none" data-text="' + text + '" class="btn" href="https://twitter.com/share">Tweet</a>');
+  var url = window.location;
+  $(this).append('<a class="twitter-share-button" data-url="' + url + '" data-count="none" data-text="' + text + '" href="https://twitter.com/share">Tweet</a>');
   twttr.widgets.load();
 }
 

@@ -65,7 +65,10 @@
     <script src="js/vogon.js"></script>
     <script>
       $(function() {
-        writePoem($("#title").val());
+        var title = window.location.hash || "Vogon";
+        title = title.replace("#", "");
+        $("#title").text(title);
+        writePoem(title);
         $("#title").change(function() {
           writePoem($(this).val());
         });
