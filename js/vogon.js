@@ -109,8 +109,7 @@ function displayShare() {
     lines.push($(o).text());
   });
   var text = lines.join(" / ") + " #vogonpoetry";
-  var url = window.location;
-  $(this).append('<a class="twitter-share-button" data-url="' + url + '" data-count="none" data-text="' + text + '" href="https://twitter.com/share">Tweet</a>');
+  $(this).append('<a class="twitter-share-button" data-count="none" data-text="' + text + '" href="https://twitter.com/share">Tweet</a>');
   twttr.widgets.load();
 }
 
