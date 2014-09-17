@@ -7,14 +7,37 @@
   <body>
     <a class="hide-for-small-only" href="http://github.com/edsu/vogon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a> 
     <div class="row">
-      <div id="credit" class="hide-for-small-only large-3 columns">
-          A beautiful poem should re-write itself one-half word at a time, in
-          pre-determined intervals.<br>
-          <br>
-          <a href="http://www.upne.com/0819569288.html">Seven Controlled Vocabluaries</a>
-          by <a href="https://twitter.com/chalkknit">Tan Lin</a>.
+      <div id="credit" class="show-for-large-only large-3 columns">
+        <br>
+        <br>
+        <em>
+        A beautiful poem should re-write itself one-half word at a time, in
+        pre-determined intervals.</em>
+        <br>
+        <br>
+        <a href="http://www.upne.com/0819569288.html">Seven Controlled Vocabluaries</a>
+        by <a href="https://twitter.com/chalkknit">Tan Lin</a>.
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <em>Vogon poetry is of course, the third worst in the universe.</em>
+        <br>
+        <br>
+        <a href="https://en.wikipedia.org/wiki/The_Hitchhiker's_Guide_to_the_Galaxy">A Hitchiker's Guide to the Galaxy</a> by 
+        <a href="https://en.wikipedia.org/wiki/Douglas_Adams">Douglas Adams</a>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        Try reloading, or entering your own title. Try logging out of Google,
+        and seeing how the poems change.
       </div>
-      <div id="poem" class="large-8 small-offset-1 small-10 columns">
+      <div id="poem" class="large-8 small-11 columns">
+        <br>
         <br>
         <input id="title" value="Vogon">
         <br>
@@ -29,7 +52,7 @@
     <script src="js/vogon.js"></script>
     <script>
       $(function() {
-        writePoem("Vogon");
+        writePoem($("#title").val());
         $("#title").change(function() {
           writePoem($(this).val());
         });

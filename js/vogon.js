@@ -6,7 +6,6 @@
 var phrasesSeen = [];
 var verbProbability = 0.6;
 var maxLines = 16;
-var writingDelay = 1500;
 
 function writePoem(seed) {
   phrasesSeen = [];
@@ -61,8 +60,7 @@ function writeLine(data) {
     i = Math.floor(Math.random() * words.length);
     j = Math.floor(Math.random() * (words.length - i)) + 1;
     var q = words.slice(i, i + j).join(' ');
-    var wait = Math.floor(Math.random() * writingDelay);
-    setTimeout('getLine("' + q + '")', wait);
+    setTimeout('getLine("' + q + '")', 700);
   }
 }
 
