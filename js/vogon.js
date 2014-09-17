@@ -61,11 +61,14 @@ function writeLine(data) {
   line = words.join(' ');
 
   if (! stanza || linesSeen.length % 2 === 0) {
+    if (stanza) {
+      addTweetButton(stanza);
+      twttr.widgets.load();
+    }
     console.log("creating new stanza");
     stanza = $('<p class="stanza"></p>');
     stanza.hover(displayShare, hideShare);
     $("#stanzas").append(stanza);
-
   }
 
   line = $('<div class="line">' + line + "</div>").hide();
@@ -75,6 +78,7 @@ function writeLine(data) {
 
   if (linesSeen.length >= maxLines) {
     console.log("stopping after writing", maxLines);
+    addTweetButton(stanza);
     return;
   } else if (words.length > 1) {
     i = Math.floor(Math.random() * (words.length - 2)) + 1;
@@ -103,17 +107,20 @@ function remove(a, s) {
   }
 }
 
-function displayShare() {
+function addTweetButton(stanza) {
   var lines = [];
-  $(this).children().each(function (i, o) {
+  $(stanza).children().each(function (i, o) {
     lines.push($(o).text());
   });
   var text = lines.join(" / ") + " #vogonpoetry";
-  $(this).append('<a class="twitter-share-button" data-count="none" data-text="' + text + '" href="https://twitter.com/share">Tweet</a>');
-  twttr.widgets.load();
+  stanza.append($('<a class="twitter-share-button" data-count="none" data-text="' + text + '" href="https://twitter.com/share">Tweet</a>'));
+}
+
+function displayShare() {
+  $(this).find(".twitter-share-button").show();
 }
 
 function hideShare() {
-  $(this).find(".twitter-share-button").remove();
+  $(this).find(".twitter-share-button").hide();
 }
 
