@@ -63,7 +63,6 @@ function writeLine(data) {
   if (! stanza || linesSeen.length % 2 === 0) {
     if (stanza) {
       addTweetButton(stanza);
-      twttr.widgets.load();
     }
     console.log("creating new stanza");
     stanza = $('<p class="stanza"></p>');
@@ -114,6 +113,7 @@ function addTweetButton(stanza) {
   });
   var text = lines.join(" / ") + " #vogonpoetry";
   stanza.append($('<a class="twitter-share-button" data-count="none" data-text="' + text + '" href="https://twitter.com/share">Tweet</a>'));
+  twttr.widgets.load();
 }
 
 function displayShare() {
