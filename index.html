@@ -8,7 +8,7 @@
     <a class="hide-for-small-only" href="http://github.com/edsu/vogon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a> 
     <div class="row">
 
-      <section id="left" class="show-for-large-only large-3 columns">
+      <section id="left" class="show-for-large-up large-3 columns">
 
         <div class="row">
           <blockquote>
@@ -37,8 +37,7 @@
             <li>Log out of Google and try it again.</li>
             <li>Open your JavaScript console to see log messages about what's 
             going on.</li>
-            <li>Yes, it's using Google's autocomplete to generate a poem using
-            the title as a seed.</li>
+            <li>Yes, it's <a href="http://inkdroid.org/journal/2014/09/17/googles-subconscious/">using</a> Google's autocomplete to generate a poem using the title as a seed.</li>
           </ol>
         </div>
 
@@ -58,7 +57,7 @@
         </article>
       </section>
 
-      <section id="tweets" class="show-for-large-only large-2 columns">
+      <section id="tweets" class="show-for-large-up large-2 columns">
         <a class="twitter-timeline" href="https://twitter.com/hashtag/vogonpoetry" data-widget-id="512142781146345472">#vogonpoetry Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       </section>
 
@@ -70,6 +69,8 @@
     <script>
       $(function() {
         var title = window.location.hash || "Vogon";
+        title = decodeURIComponent(title);
+
         title = title.replace("#", "");
         $("#title").val(title);
         writePoem(title);

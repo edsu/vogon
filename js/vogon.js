@@ -34,7 +34,11 @@ function writeLine(data) {
   });
 
   if (phrases.length === 0) {
-    console.log("no more suggestions, done");
+    console.log("no suggestions");
+    var words = data[0].split(" ");
+    if (words.length > 1) {
+      getLine(words[1]);
+    }
     return;
   }
 
