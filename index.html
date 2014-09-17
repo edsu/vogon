@@ -7,44 +7,57 @@
   <body>
     <a class="hide-for-small-only" href="http://github.com/edsu/vogon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" /></a> 
     <div class="row">
-      <div id="credit" class="show-for-large-only large-3 columns">
-        <br>
-        <br>
-        <em>
-        A beautiful poem should re-write itself one-half word at a time, in
-        pre-determined intervals.</em>
-        <br>
-        <br>
-        <a href="http://www.upne.com/0819569288.html">Seven Controlled Vocabluaries</a>
-        by <a href="https://twitter.com/chalkknit">Tan Lin</a>.
-        <br>
-        <br>
-        <br>
-        <hr>
-        <br>
-        <em>Vogon poetry is of course, the third worst in the universe.</em>
-        <br>
-        <br>
-        <a href="https://en.wikipedia.org/wiki/The_Hitchhiker's_Guide_to_the_Galaxy">A Hitchiker's Guide to the Galaxy</a> by 
-        <a href="https://en.wikipedia.org/wiki/Douglas_Adams">Douglas Adams</a>
-        <br>
-        <br>
-        <br>
-        <hr>
-        <br>
-        <br>
-        Try reloading, or entering your own title. Try logging out of Google,
-        and seeing how the poems change.
+
+      <section id="left" class="show-for-large-only large-3 columns">
+
+        <div class="row">
+          <blockquote>
+            <p>A beautiful poem should re-write itself one-half word at
+            a time, in pre-determined intervals.</p>
+            <footer><cite><a href="http://www.upne.com/0819569288.html">Seven Controlled Vocabluaries</a> by <a href="https://twitter.com/chalkknit">Tan Lin</a>.</cite></footer>
+          </blockquote>
+        </div>
+
+        <div class="row">
+          <blockquote>
+            <p>Vogon poetry is of course, the third worst in the universe.</p>
+            <footer><cite><a href="https://en.wikipedia.org/wiki/The_Hitchhiker's_Guide_to_the_Galaxy">A Hitchiker's Guide to the Galaxy</a> by <a href="https://en.wikipedia.org/wiki/Douglas_Adams">Douglas Adams</a></cite></footer>
+          </blockquote>
+        </div>
+  
+        <div id="tips" class="row">
+          <p>
+          A few tips:
+          </p>
+          <ol>
+            <li>Reload this page and see the poem change</li>
+            <li>Change the poems title by clicking on it.</li>
+            <li>Share a stanza you like on Twitter.</li>
+            <li>Log out of Google and try it again.</li>
+            <li>Open your JavaScript console to get some insight into what's going on.</li>
+          </ol>
+        </div>
+
+      </section>
+
+      <div class="large-1 columns">
+        &nbsp;
       </div>
-      <div id="poem" class="large-8 small-11 columns">
+
+      <section id="poem" class="large-5 small-11 columns">
         <br>
         <br>
         <input id="title" value="Vogon">
         <br>
         <br>
-        <article id="verses">
+        <article id="stanzas">
         </article>
-      </div>
+      </section>
+
+      <section id="tweets" class="show-for-large-only large-2 columns">
+        <a class="twitter-timeline" href="https://twitter.com/hashtag/vogonpoetry" data-widget-id="512142781146345472">#vogonpoetry Tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </section>
+
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/foundation.min.js"></script>
@@ -58,5 +71,6 @@
         });
       });
     </script>
+    <script type="text/javascript">window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));</script>
   </body>
 </html>

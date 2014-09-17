@@ -1,3 +1,41 @@
 #title {
   font-weight: bold;
+  font-size: 18pt;
+  border: none;
+  cursor: pointer;
+}
+
+#left div {
+  margin-top: 30px;
+}
+
+#tips {
+  padding: 8px;
+}
+
+#tips li {
+  font-size: smaller;
+}
+
+#tweets {
+  margin-top: 30px;
+}
+
+.stanza {
+  padding: 5px;
+}
+
+.stanza:hover {
+  border: thin solid #eeeeee;
+  background-color: #ffff66;
+}
+
+.stanza {
+  position: relative;
+}
+
+.twitter-share-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
 }

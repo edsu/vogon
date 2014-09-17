@@ -3,19 +3,23 @@
  *
  */
 
-var phrasesSeen = [];
+
+var linesSeen = [];
 var verbProbability = 0.6;
 var maxLines = 16;
+var stanza = null;
 
 function writePoem(seed) {
-  phrasesSeen = [];
-  $("#verses").empty();
+  linesSeen = [];
+  $("#stanzas").empty();
   getLine(seed);
 }
 
 function writeLine(data) {
   // sort suggestions by their length, and get the longest one
   var phrases = data[1];
+
+  console.log("got google suggestions: ", phrases);
   phrases.sort(function(a, b) {
     aLen = a.split(" ").length;
     bLen = b.split(" ").length;
@@ -27,41 +31,53 @@ function writeLine(data) {
       return 0;
     }
   });
+
   if (phrases.length === 0) {
+    console.log("no more suggestions, done");
     return;
   }
-  var phrase = phrases.pop();
-  phrase = phrase.replace(RegExp(data[0] + ' '), '');
+
+  var line = phrases.pop();
+  console.log("picked longest suggestion", line);
+
+  line = line.replace(RegExp(data[0] + ' '), '');
+  console.log("removed seed text", line);
 
   // sometimes add a verb
   if (Math.random() > verbProbability) {
-    phrase = verb() + " " + phrase;
+    line = verb() + " " + line;
+    console.log("prepended a random verb", line);
   }
 
-  var words = phrase.split(' ');
+  // remove some things
+  var words = line.split(' ');
   remove(words, 'lyrics'); 
   remove(words, 'mp3'); 
-  phrase = words.join(' ');
+  line = words.join(' ');
 
-  //if (phrasesSeen.indexOf(phrase) > -1 || phrasesSeen.length >= maxLines) {
-  if (phrasesSeen.length >= maxLines) {
-    return;
+  if (! stanza || linesSeen.length % 2 === 0) {
+    console.log("creating new stanza");
+    stanza = $('<p class="stanza"></p>');
+    stanza.hover(displayShare, hideShare);
+    $("#stanzas").append(stanza);
+
   }
-  phrasesSeen.push(phrase);
 
-  var line = $('<div class="line">' + phrase + "</div>").hide();
-  $("#verses").append(line);
+  line = $('<div class="line">' + line + "</div>").hide();
+  stanza.append(line);
   line.fadeIn();
-  if (phrasesSeen.length % 4 === 0) {
-    $("#verses").append("<br>"); 
+  linesSeen.push(line);
+
+  if (linesSeen.length >= maxLines) {
+    console.log("stopping after writing", maxLines);
+    return;
+  } else if (words.length > 1) {
+    i = Math.floor(Math.random() * (words.length - 2)) + 1;
+    var q = words.slice(i, i + 2).join(' ');
+    setTimeout('getLine("' + q + '")', 700);
+    console.log("picked new suggestion seed", q);
   }
 
-  if (words.length > 1) {
-    i = Math.floor(Math.random() * words.length);
-    j = Math.floor(Math.random() * (words.length - i)) + 1;
-    var q = words.slice(i, i + j).join(' ');
-    setTimeout('getLine("' + q + '")', 700);
-  }
 }
 
 function getLine(q) {
@@ -82,4 +98,18 @@ function remove(a, s) {
   }
 }
 
+function displayShare() {
+  var lines = [];
+  $(this).children().each(function (i, o) {
+    lines.push($(o).text());
+  });
+  var text = lines.join(" / ") + " #vogonpoetry";
+
+  $(this).append('<a class="twitter-share-button" data-count="none" data-text="' + text + '" class="btn" href="https://twitter.com/share">Tweet</a>');
+  twttr.widgets.load();
+}
+
+function hideShare() {
+  $(this).find(".twitter-share-button").remove();
+}
 
